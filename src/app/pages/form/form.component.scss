@@ -1,0 +1,32 @@
+.custom-image {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    background: #d3d0ff;
+}
+
+.container-form {
+    padding: 75px 95px;
+
+    &-title {
+        font-size: 28px;
+        font-weight: 500;
+        color: #4439ff;
+    }
+
+    label {
+        color: #6B62FF;
+    }
+
+    button {
+        background: #6B62FF;
+        color: #fff;
+    }
+}
+
+.invalid-input {
+    border-color: red;
+}
+.invalid-form {
+    color: red;
+}

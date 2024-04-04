@@ -1,0 +1,66 @@
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-12 col-lg-6 custom-image">
+            <img src="../../../assets/img/undraw_working_remotely.svg" width="100%" draggable="false" class="d-none d-md-none d-lg-block">
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="container-form">
+                <form [formGroup]="newUserForm" (ngSubmit)="onSubmit()">
+                    <p class="container-form-title">Nuevo registro</p>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombres</label>
+                        <input [class.invalid-input]="nameControl?.touched && nameControl?.invalid" type="text" class="form-control" id="name" formControlName="name" autocomplete="false">
+                        <span class="invalid-form" *ngIf="nameControl?.hasError('required') && nameControl?.touched && nameControl?.invalid">Este campo es requerido</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="lastname" class="form-label">Apellidos</label>
+                        <input [class.invalid-input]="lastnameControl?.touched && lastnameControl?.invalid" type="text" class="form-control" id="lastname" formControlName="lastname" autocomplete="false">
+                        <span class="invalid-form" *ngIf="lastnameControl?.touched && lastnameControl?.hasError('required')">Este campo es requerido</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Celular</label>
+                        <input [class.invalid-input]="phoneControl?.touched && phoneControl?.invalid" type="text" class="form-control" id="phone" formControlName="phone" autocomplete="false">
+                        <span class="invalid-form" *ngIf="phoneControl?.touched && phoneControl?.hasError('pattern')">Este campo solo es numérico</span>
+                        <span class="invalid-form" *ngIf="phoneControl?.touched && phoneControl?.hasError('required')">Este campo es requerido</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input [class.invalid-input]="mailControl?.touched && mailControl?.invalid" type="email" class="form-control" id="email" formControlName="email" autocomplete="false">
+                        <span class="invalid-form" *ngIf="mailControl?.touched && mailControl?.hasError('required')">Este campo es requerido</span>
+                        <span class="invalid-form" *ngIf="mailControl?.touched && mailControl?.hasError('email')">El email no es válido</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="course" class="form-label">Curso</label>
+                        <select class="form-select" id="course" formControlName="course" [class.invalid-input]="courseControl?.touched && courseControl?.invalid" autocomplete="false">
+                            <option selected>-</option>
+                            <option value="angular">Angular</option>
+                            <option value="react">React js</option>
+                            <option value="vue">Vue js</option>
+                        </select>
+                        <span class="invalid-form" *ngIf="courseControl?.touched && courseControl?.hasError('required')">Este campo es requerido</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="country" class="form-label">País</label>
+                        <select class="form-select" id="country" formControlName="country" [class.invalid-input]="countryControl?.touched && countryControl?.invalid" autocomplete="false">
+                            <option selected>-</option>
+                            <option value="co">Colombia</option>
+                            <option value="cl">Chile</option>
+                            <option value="pe">Perú</option>
+                        </select>
+                        <span class="invalid-form" *ngIf="countryControl?.touched && countryControl?.hasError('required')">Este campo es requerido</span>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn mt-3 w-100" >Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
